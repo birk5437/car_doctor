@@ -1,17 +1,10 @@
-<%= form_for(@vehicle_make) do |f| %>
-  <% if @vehicle_make.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vehicle_make.errors.count, "error") %> prohibited this vehicle_make from being saved:</h2>
+<%= form_for @vehicle_make, :html => { :class => 'form-horizontal form-model' } do |f| %>
 
-      <ul>
-      <% @vehicle_make.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  vehicle_makes_path, :class => 'btn btn-default' %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>

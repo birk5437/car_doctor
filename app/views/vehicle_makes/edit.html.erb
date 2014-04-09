@@ -1,6 +1,5 @@
-<h1>Editing vehicle_make</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @vehicle_make %> |
-<%= link_to 'Back', vehicle_makes_path %>
+<%- model_class = VehicleMake -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => VehicleMake %></h1>
+</div>
+<%= render :partial => 'form' %>
