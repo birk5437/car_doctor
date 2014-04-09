@@ -1,29 +1,36 @@
-<h1>Listing explanations</h1>
-
-<table>
+<%- model_class = Explanation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Explanation %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Problem</th>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @explanations.each do |explanation| %>
       <tr>
-        <td><%= explanation.problem %></td>
+        <td><%= explanation.id %></td>
         <td><%= explanation.description %></td>
-        <td><%= link_to 'Show', explanation %></td>
-        <td><%= link_to 'Edit', edit_explanation_path(explanation) %></td>
-        <td><%= link_to 'Destroy', explanation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l explanation.created_at, format: :long %></td>
+        <td>
+          <%= link_to explanation_path(explanation), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to explanation_path(explanation), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Explanation', new_explanation_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_explanation_path,
+            :class => 'btn btn-primary' %>
