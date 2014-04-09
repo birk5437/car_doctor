@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Problem:</strong>
+  <%= @explanation.problem %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @explanation.description %>
+</p>
+
+<%= link_to 'Edit', edit_explanation_path(@explanation) %> |
+<%= link_to 'Back', explanations_path %>
