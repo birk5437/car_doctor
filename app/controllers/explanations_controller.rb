@@ -1,5 +1,5 @@
 class ExplanationsController < ApplicationController
-  before_action :set_explanation, only: [:show, :edit, :update, :destroy]
+  before_action :set_explanation, only: [:show, :edit, :update, :destroy, :vote]
 
   # GET /explanations
   # GET /explanations.json
