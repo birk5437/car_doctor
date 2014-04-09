@@ -1,4 +1,6 @@
 CarDoctor::Application.routes.draw do
+  resources :vehicle_makes
+
   resources :problems do
   #->Prelang (voting/acts_as_votable)
   member do
