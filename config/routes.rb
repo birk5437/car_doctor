@@ -1,4 +1,6 @@
 CarDoctor::Application.routes.draw do
+  resources :problems
+
   resources :vehicle_models
 
   resources :solutions do
