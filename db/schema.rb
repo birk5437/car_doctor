@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409211701) do
+ActiveRecord::Schema.define(version: 20140409212922) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140409211701) do
   create_table "vehicle_makes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "vehicle_models", force: true do |t|
