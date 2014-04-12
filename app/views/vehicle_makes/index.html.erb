@@ -15,7 +15,7 @@
     <% @vehicle_makes.each do |vehicle_make| %>
       <tr>
         <td><%= vehicle_make.id %></td>
-        <td><%= vehicle_make.name %></td>
+        <td><%= link_to(vehicle_make.name, vehicle_make_vehicle_models_path(vehicle_make)) %></td>
         <td><%=l vehicle_make.created_at, format: :long %></td>
         <td>
           <%= link_to vehicle_make_path(vehicle_make), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>

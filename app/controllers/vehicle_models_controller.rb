@@ -4,7 +4,12 @@ class VehicleModelsController < ApplicationController
   # GET /vehicle_models
   # GET /vehicle_models.json
   def index
-    @vehicle_models = VehicleModel.all
+    @vehicle_make = VehicleMake.find_by_id(params[:vehicle_make_id])
+    if @vehicle_make
+      @vehicle_models = @vehicle_make.vehicle_models.all
+    else
+      @vehicle_models = VehicleModel.all
+    end
   end
 
   # GET /vehicle_models/1

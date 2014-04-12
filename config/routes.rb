@@ -1,5 +1,10 @@
 CarDoctor::Application.routes.draw do
-  resources :vehicle_makes
+
+  root to: 'vehicle_makes#index'
+
+  resources :vehicle_makes do
+    resources :vehicle_models
+  end
 
   resources :problems do
   #->Prelang (voting/acts_as_votable)
